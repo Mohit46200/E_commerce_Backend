@@ -11,18 +11,17 @@ router.post("/cartdata", async (req, res) => {
                 cartdata.product_id = []
                 await cartdata.save()  
             }else if(remove){
-                    cartdata.product_id = cartdata.product_id.filter(item => item[0] !== product_id[0])
+                    cartdata.product_id = cartdata.product_id.filter(id => id !== product_id)
                     await cartdata.save()  
             }else{
-                cartdata.product_id.push(product_id)
+                cartdata.product_id.push(product_id[0])
                 await cartdata.save() 
             }
             
         }else{
             cartdata = await CartData.create({
                 email:email,
-                product_id:[product_id]
-                
+                product_id:product_id
             })
         }
 
