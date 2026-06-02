@@ -4,7 +4,7 @@ const CartData = require("../models/cartDataSchema")
 
 router.post("/cartdata", async (req, res) => {
     try {
-        const { email, product_id, delete_cart, remove} = req.body;
+        const { email, product_id, delete_cart, remove,qty} = req.body;
         let cartdata = await CartData.findOne({email:email})
         if(cartdata){
             if(delete_cart){
@@ -14,14 +14,15 @@ router.post("/cartdata", async (req, res) => {
                     cartdata.product_id = cartdata.product_id.filter(id => id !== product_id)
                     await cartdata.save()  
             }else{
-                cartdata.product_id.push(product_id[0])
+                cartdata.product_id.push([product_id[0],qty])
                 await cartdata.save() 
             }
             
         }else{
             cartdata = await CartData.create({
                 email:email,
-                product_id:product_id
+                product_id:[product_id,qty]
+                
             })
         }
 

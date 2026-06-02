@@ -6,7 +6,7 @@ const cartSchema = new mongoose.Schema({
     },
     product_id:[
         {
-            type:Number
+            type:[[Number]]
         }
     ]
   },
