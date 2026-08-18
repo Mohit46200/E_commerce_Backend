@@ -17,7 +17,6 @@ dotenv.config();
 connectMongoDb("mongodb+srv://mohit22600:dpXsejSe31ILy41F@cluster0.dlnt1ti.mongodb.net/")
 
 
-
 app.use(cors());
 app.use(express.json());
 
