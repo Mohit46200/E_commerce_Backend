@@ -7,6 +7,7 @@ const dotenv = require("dotenv");
 const authRoutes = require("./Routes/auth");
 const cartData = require("./Routes/cartData")
 const checkout = require("./Routes/checkout")
+const Ai = require("./Routes/ai.js")
 
 const app = express()
 const PORT = 8000
@@ -25,6 +26,7 @@ app.use("/",plant)
 app.use("/auth", authRoutes)
 app.use("/data", cartData)
 app.use("/check",checkout)
+app.use("/",Ai)
 
 
 app.listen(PORT, () => {
