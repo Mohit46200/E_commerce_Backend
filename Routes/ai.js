@@ -67,7 +67,7 @@
 const express = require("express");
 const router = express.Router();
 
-const Product = require("../models/Product");
+// const Product = require("../models/Product");
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
